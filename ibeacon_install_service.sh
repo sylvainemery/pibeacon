@@ -1,5 +1,5 @@
 #! /bin/bash
-cat > /etc/init.d/ibeacon << "EOF"
+sed "s:/home/pi/iBeacon:$PWD:" > /etc/init.d/ibeacon << "EOF"
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$PATH
 

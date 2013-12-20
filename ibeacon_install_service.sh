@@ -6,7 +6,7 @@ if [[ $UID != 0 ]]; then
 fi
 
 
-sed "s:/home/pi/iBeacon:$PWD:" > /etc/init.d/ibeacon << "EOF"
+sed "s:/home/pi/iBeacon:$(dirname $(readlink -f $0)):" > /etc/init.d/ibeacon << "EOF"
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$PATH
 

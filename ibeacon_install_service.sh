@@ -1,4 +1,11 @@
 #! /bin/bash
+# check root permissions
+if [[ $UID != 0 ]]; then
+  echo "Please start the script as root or sudo!"
+  exit 1
+fi
+
+
 sed "s:/home/pi/iBeacon:$PWD:" > /etc/init.d/ibeacon << "EOF"
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$PATH

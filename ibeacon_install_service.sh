@@ -5,6 +5,7 @@ if [[ $UID != 0 ]]; then
   exit 1
 fi
 
+apt-get install bluez -y
 
 sed "s:/home/pi/iBeacon:$(dirname $(readlink -f $0)):" > /etc/init.d/ibeacon << "EOF"
 #!/bin/bash
